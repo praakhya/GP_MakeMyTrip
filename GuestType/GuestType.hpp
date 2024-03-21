@@ -1,0 +1,5 @@
+enum GuestType
+{
+    ADULT,
+    CHILD
+};
