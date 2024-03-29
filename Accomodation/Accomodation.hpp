@@ -2,12 +2,13 @@
 #include "../Utils/Utils.hpp"
 #include "../Guest/Guest.hpp"
 #include "../Room/Room.hpp"
-class Accomadation
+class Accomodation
 {
     Place *place;
     int capacity;
     Address *address;
     List<Room> *rooms;
 public:
-    Accomadation();
+    Accomodation();
+    virtual List<Room> find(const Date& from, const Date& to) = 0;
 };

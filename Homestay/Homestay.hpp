@@ -1,5 +1,5 @@
-#include "../Accomadation/Accomadation.hpp"
-class Homestay : public Accomadation {
+#include "../Accomodation/Accomodation.hpp"
+class Homestay : public Accomodation {
     public:
         Homestay();
 };
