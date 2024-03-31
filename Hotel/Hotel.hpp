@@ -1,5 +1,18 @@
 #include "../Accomodation/Accomodation.hpp"
-class Hotel : public Accomodation{
+#include "../Utils/Utils.hpp"
+
+class Hotel : public Accomodation {
     public:
-        Hotel();
+        Hotel() {
+
+        }
+        Hotel(const Place& place,
+                const std::string& address,
+                const Map<Room, int>& rooms)
+                : Accomodation(place, address, rooms) {
+        }
+        Hotel(const Hotel& rhs)
+        : Accomodation(rhs) {
+
+        }
 };

@@ -1,8 +1,16 @@
-#include "iostream"
+#include <iostream>
 
 template <typename A, typename B>
 class Pair
 {
+    friend std::ostream& operator<<(std::ostream& strm,
+                                    const Pair<A, B>& rhs) {
+        strm << '{' 
+        << (rhs.k == 0 ? "NULL" : *(rhs.k)) 
+        << ':' << (rhs.v == 0 ? "NULL" : *(rhs.v)) 
+        << '}';
+        return strm;
+    }
     A* k;
     B* v;
     void printPair() {
@@ -30,20 +38,23 @@ public:
         k = NULL;
         v = NULL;
     }
+    Pair(const Pair& rhs)
+    : Pair(rhs.k, rhs.v)
+    {
+        
+    }
     Pair(A key, B value)
     {
-        this->k = new A();
-        this->v = new B();
-        *(this->k) = key;
-        *(this->v) = value;
+        this->k = new A(key);
+        this->v = new B(value);
     }
-    A key() {
+    const A& key() const {
         return *k;
     }
-    B value() {
+    const B& value() const {
         return *v;
     }
     void print() {
-        this->printPair();
+        std::cout << *this;
     }
 };

@@ -1,10 +1,33 @@
+#ifndef __ROOM_HPP__
+#define __ROOM_HPP__
 #include <string>
 #include "../Utils/Utils.hpp"
 #include "Bed/Bed.hpp"
 
 class Room {
-    std::string type;
+    std::string roomType;
     float area;
-    List<Bed> beds;
-    Price* pricePerNight;
+    int bedCount;
+    Price pricePerNight;
+public:
+    Room(const std::string& roomType, float area, int bedCount, int amount, const std::string& symbol="Rs.")
+    : roomType(roomType),
+      area(area),
+      bedCount(bedCount),
+      pricePerNight(Price(amount, symbol)) {
+
+    }
+    inline const std::string& getRoomType() {
+        return roomType;
+    }
+    inline float getArea() {
+        return area;
+    }
+    inline int getBedCount() {
+        return bedCount;
+    }
+    inline const Price& getPricePerNight() {
+        return pricePerNight;
+    }
 };
+#endif

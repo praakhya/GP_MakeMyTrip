@@ -4,9 +4,9 @@
 #include "Date/Date.hpp"
 #endif
 
-#ifndef LIST_HPP
-#define LIST_HPP
-#include "List/List.hpp"
+#ifndef VECTOR_HPP
+#define VECTOR_HPP
+#include "Vector/Vector.hpp"
 #endif
 
 #ifndef PRICE_HPP

@@ -1,10 +1,41 @@
 #include "../MakeMyTrip/MakeMyTrip.hpp"
-void book(){}
+#include "../BookingResourceManager/BookingResourceManager.hpp"
 
+void startHotelBooking() {
+
+}
+void startHomestayBooking() {
+
+}
+void startVillaBooking() {
+
+}
+void startAccomodation(){
+
+    Map<std::string, VoidFunctionPointer> accomodationSubMenu;
+    accomodationSubMenu.insert(Pair<std::string, VoidFunctionPointer>("Hotel", &startHotelBooking),
+    Pair<std::string, VoidFunctionPointer>("Homestay", &startHomestayBooking),
+    Pair<std::string, VoidFunctionPointer>("Villa", &startVillaBooking)
+    );
+    MakeMyTrip::executeMenu(accomodationSubMenu);
+}
+
+void startTransportation(){}
+void startManager(){}
+void exitApp(){exit(0);}
+typedef Pair<int, std::string> IntStringPair;
 MakeMyTrip::MakeMyTrip(){
-    Map<std::string, VoidFunctionPointer>* choices = new Map<std::string, VoidFunctionPointer>();
-    choices->pair_insert("Create a Booking",&book);
-    choices->print();
+    choices = new Map<std::string, VoidFunctionPointer>();
+    choices->insert(
+        Pair<std::string, VoidFunctionPointer>
+        ("Accomadation",&startAccomodation), 
+        Pair<std::string, VoidFunctionPointer>
+        ("Transportation",&startTransportation),
+        Pair<std::string, VoidFunctionPointer>
+        ("Manage Bookings",&startManager),
+        Pair<std::string, VoidFunctionPointer>
+        ("Exit",&exitApp)
+    );
 }
 void MakeMyTrip::run(){
     if (getuid()) {
@@ -17,20 +48,59 @@ void MakeMyTrip::run(){
 void MakeMyTrip::runAdmin() {
     std::cout << "Run admin" << std::endl;
 }
+int MakeMyTrip::runMenu() {
+    int choice;
+    std::cout << "Choose an option:-\n" << std::endl;
+    for (int i=0; i<choices->size(); ++i) {
+        std::cout << i+1 << ". " << choices->get(i)->key() << std::endl;
+    }
+    std::cin >> choice;
+    return choice;
+}
 void MakeMyTrip::runCustomer() {
     std::cout << "Welcome to Make My Trip" << std::endl;
-    std::string choice = "";
-    while (choice.compare("")==0) {
-        std::cout << "Choose an option:-\n" << std::endl;
-        for (int i=0; i<choices->size(); ++i) {
-            std::cout << choices->get(i)->key() << std::endl;
+    int choice = runMenu();
+    while (1) {
+        if (choice<1 && choice>choices->size()) {
+            std::cout << "Invalid option. Try Again\n";
+            continue;
         }
-        std::cin >> choice;
-        if (choice.compare("exit")==0) {
-            std::cout << "Thank you for visiting\n";
+        Pair<std::string, VoidFunctionPointer>* pair = choices->get(choice-1);
+        pair->value()();
+        choice = runMenu();
+
+    }
+}
+
+
+void MakeMyTrip::executeMenu(const Map<std::string, VoidFunctionPointer>& menu) {
+
+    int choice;
+    do {
+
+    std::cout << "Choose an option:-\n" << std::endl;
+    for (int i=0; i<menu.size(); ++i) {
+        std::cout << i+1 << ". " << menu.get(i)->key() << std::endl;
+    }
+    std::cout << menu.size() + 1 << ". Return" << std::endl;
+    std::cin >> choice;
+    if (choice<1 && choice > menu.size() + 1) {
+        std::cout << "Invalid option. Try Again\n";
+        continue;
+    }
+    else {
+
+        if (choice == menu.size() + 1) {
+            /** Here we are choosing the last element in the menu. It is hardcoded to be
+             * return from child menu to parent.
+            */
             return;
         }
+        Pair<std::string, VoidFunctionPointer>* pair = menu.get(choice-1);
+        pair->value()();
     }
+    }
+    while(choice > 0 && choice <= menu.size() + 1);
 }
 int main() {
     MakeMyTrip m = MakeMyTrip();
