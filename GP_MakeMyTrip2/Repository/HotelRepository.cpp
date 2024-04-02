@@ -1,4 +1,7 @@
 #include "HotelRepository.hpp"
+
+HotelRepository::instance = 0;
+
 Hotel HotelRepository::put(Hotel accomodation){}
 void HotelRepository::remove(Hotel accomodation){}
 Hotel HotelRepository::add(Hotel accomodation){}

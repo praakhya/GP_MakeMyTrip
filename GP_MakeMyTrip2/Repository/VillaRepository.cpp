@@ -1,4 +1,5 @@
 #include "VillaRepository.hpp"
+VillaRepository::instance = 0;
 Villa VillaRepository::put(Villa accomodation){}
 void VillaRepository::remove(Villa accomodation){}
 Villa VillaRepository::add(Villa accomodation){}

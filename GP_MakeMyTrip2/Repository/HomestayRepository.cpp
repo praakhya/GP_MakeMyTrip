@@ -1,4 +1,5 @@
 #include "HomestayRepository.hpp"
+HomestayRepository::instance = 0;
 Homestay HomestayRepository::put(Homestay accomodation){}
 void HomestayRepository::remove(Homestay accomodation){}
 Homestay HomestayRepository::add(Homestay accomodation){}

@@ -6,6 +6,6 @@ class AccomodationRepository {
     virtual T put(T accomodation) = 0;
     virtual void remove(T accomodation) = 0;
     virtual T add(T accomodation) = 0;
-}
+};
 
 #endif

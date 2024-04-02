@@ -6,7 +6,7 @@
 
 class HotelRepository : public AccomodationRepository<Hotel> {
     public:
-    static HotelRepository* instance = NULL;
+    static HotelRepository* instance;
     Hotel put(Hotel hotel);
     void remove(Hotel hotel);
     Hotel add(Hotel hotel);
