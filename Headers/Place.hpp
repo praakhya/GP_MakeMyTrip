@@ -2,7 +2,7 @@
 #define __PLACE_H__
 
 #include <string>
-#include "../Utils/Utils.hpp"
+#include "Utils.hpp"
 
 class Place
 {

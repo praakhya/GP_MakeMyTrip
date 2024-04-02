@@ -1,4 +1,4 @@
-#include "../GuestType/GuestType.hpp"
+#include "GuestType.hpp"
 class Guest
 {
     GuestType *type;

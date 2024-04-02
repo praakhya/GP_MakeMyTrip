@@ -2,7 +2,7 @@
 #include <string>
 #include <unistd.h>
 
-#include "../Utils/Utils.hpp"
+#include "Utils.hpp"
 
 class MakeMyTrip {
     void runCustomer();
@@ -15,6 +15,4 @@ class MakeMyTrip {
         void run();
 
 };
-
-
 

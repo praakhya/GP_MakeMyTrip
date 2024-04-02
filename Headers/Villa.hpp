@@ -1,4 +1,4 @@
-#include "../Accomodation/Accomodation.hpp"
+#include "Accomodation.hpp"
 class Villa : public Accomodation {
     public:
         Villa();

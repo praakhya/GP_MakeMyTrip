@@ -1,11 +1,11 @@
 #include <iostream>
-#include "../Utils/Utils.hpp"
-#include "../Room/Room.hpp"
-#include "../Hotel/Hotel.hpp"
-#include "../Accomodation/Accomodation.hpp"
-#include "../Homestay/Homestay.hpp"
-#include "../Villa/Villa.hpp"
-#include "../Place/Place.hpp"
+#include "Utils.hpp"
+#include "Room.hpp"
+#include "Hotel.hpp"
+#include "Accomodation.hpp"
+#include "Homestay.hpp"
+#include "Villa.hpp"
+#include "Place.hpp"
 
 class BookingManagerInterface {
     private:

@@ -1,32 +1,32 @@
 
 #ifndef DATE_HPP
 #define DATE_HPP
-#include "Date/Date.hpp"
+#include "Date.hpp"
 #endif
 
 #ifndef VECTOR_HPP
 #define VECTOR_HPP
-#include "Vector/Vector.hpp"
+#include "Vector.hpp"
 #endif
 
 #ifndef PRICE_HPP
 #define PRICE_HPP
-#include "Price/Price.hpp"
+#include "Price.hpp"
 #endif
 
 #ifndef ADDRESS_HPP
 #define ADDRESS_HPP
-#include "Address/Address.hpp"
+#include "Address.hpp"
 #endif
 
 #ifndef MAP_HPP
 #define MAP_HPP
-#include "Map/Map.hpp"
+#include "Map.hpp"
 #endif
 
 #ifndef PAIR_HPP
 #define PAIR_HPP
-#include "Pair/Pair.hpp"
+#include "Pair.hpp"
 #endif
 
 typedef void (*VoidFunctionPointer)();

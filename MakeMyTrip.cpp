@@ -1,5 +1,5 @@
-#include "../MakeMyTrip/MakeMyTrip.hpp"
-#include "../BookingResourceManager/BookingResourceManager.hpp"
+#include "Headers/MakeMyTrip.hpp"
+#include "Headers/BookingResourceManager.hpp"
 
 void startHotelBooking() {
 

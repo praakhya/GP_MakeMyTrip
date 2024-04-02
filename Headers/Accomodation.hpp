@@ -1,10 +1,10 @@
 #ifndef __ACCOMODATION_H__
 #define __ACCOMODATION_H__
 
-#include "../Place/Place.hpp"
-#include "../Utils/Utils.hpp"
-#include "../Guest/Guest.hpp"
-#include "../Room/Room.hpp"
+#include "Place.hpp"
+#include "Utils.hpp"
+#include "Guest.hpp"
+#include "Room.hpp"
 class Accomodation
 {
     Place place;

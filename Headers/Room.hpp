@@ -1,8 +1,8 @@
 #ifndef __ROOM_HPP__
 #define __ROOM_HPP__
 #include <string>
-#include "../Utils/Utils.hpp"
-#include "Bed/Bed.hpp"
+#include "Utils.hpp"
+#include "Bed.hpp"
 
 class Room {
     std::string roomType;

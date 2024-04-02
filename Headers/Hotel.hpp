@@ -1,5 +1,5 @@
-#include "../Accomodation/Accomodation.hpp"
-#include "../Utils/Utils.hpp"
+#include "Accomodation.hpp"
+#include "Utils.hpp"
 
 class Hotel : public Accomodation {
     public:
