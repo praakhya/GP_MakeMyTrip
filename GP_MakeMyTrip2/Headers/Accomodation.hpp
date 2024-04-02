@@ -1,29 +1,20 @@
+#ifndef __ACCOMODATION_H__
+#define __ACCOMODATION_H__
+
 #include "Place.hpp"
+#include "Utils.hpp"
 #include "Room.hpp"
-class Accomodation {
-    std::string name;
+class Accomodation
+{
     Place place;
     std::string address;
     Map<Room, int> rooms;
-    public:
-    Accomodation(
-                const std::string& name,
-                const Place& place,
-                const std::string& address,
-                const Map<Room, int>& rooms)
-                : name(name), 
-                place(place),
-                address(address),
-                rooms(rooms) {
-    }
-    Accomodation() {
-        
-    }
-    Accomodation(const Accomodation& rhs) 
-    :   name(rhs.name),
-        place(rhs.place),
-        address(rhs.address),
-        rooms(rhs.rooms) {
-            
-        }
+
+public:
+    Accomodation(const Place &place,
+                 const std::string &address,
+                 const Map<Room, int> &rooms);
+    Accomodation();
+    Accomodation(const Accomodation &rhs);
 };
+#endif // __ACCOMODATION_H__

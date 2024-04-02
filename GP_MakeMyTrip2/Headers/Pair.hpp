@@ -5,56 +5,36 @@ class Pair
 {
     friend std::ostream& operator<<(std::ostream& strm,
                                     const Pair<A, B>& rhs) {
-        strm << '{' 
-        << (rhs.k == 0 ? "NULL" : *(rhs.k)) 
-        << ':' << (rhs.v == 0 ? "NULL" : *(rhs.v)) 
-        << '}';
+        strm << '{' << rhs.k << ':' << rhs.v << '}';
         return strm;
     }
-    A* k;
-    B* v;
-    void printPair() {
-        if (this->k==NULL) {
-            if (this->v == NULL) {
-                std::cout << "[,]";
-                return;
-            }
-            std::cout << "[, " << *(this->v) << " ]\n";
-            return;
-        }
-        if (this->v==NULL) {
-            if (this->k == NULL) {
-                std::cout << "[,]";
-                return;
-            }
-            std::cout << "[ " << *(this->k) << ",]\n";
-            return;
-        }
-        std::cout << "[ " << *(this->k) << " , " << *(this->v) << " ]";
-    }
+    A k;
+    B v;
+
 public:
     Pair()
     {
-        k = NULL;
-        v = NULL;
     }
     Pair(const Pair& rhs)
     : Pair(rhs.k, rhs.v)
     {
-        
+
     }
-    Pair(A key, B value)
+    Pair(const A& key, const B& value)
+    : k(key),
+      v(value)
     {
-        this->k = new A(key);
-        this->v = new B(value);
     }
     const A& key() const {
-        return *k;
+        return k;
     }
-    const B& value() const {
-        return *v;
+    B value() const {
+        return v;
     }
     void print() {
         std::cout << *this;
+    }
+    Pair<A,B>* clone() {
+        return new Pair<A, B>(k, v);
     }
 };

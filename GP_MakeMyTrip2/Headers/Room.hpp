@@ -9,11 +9,23 @@ class Room {
     int bedCount;
     Price pricePerNight;
 public:
-    Room(const std::string& roomType, float area, int bedCount, int amount, const std::string& symbol="Rs.")
+    Room(const std::string& roomType,
+         float area,
+         int bedCount,
+         int amount,
+         const std::string& symbol="Rs.")
     : roomType(roomType),
       area(area),
       bedCount(bedCount),
       pricePerNight(Price(amount, symbol)) {
+
+    }
+    Room(const Room& rhs)
+    : roomType(rhs.roomType),
+      area(rhs.area),
+      bedCount(rhs.bedCount),
+      pricePerNight(rhs.pricePerNight)
+    {
 
     }
     inline const std::string& getRoomType() {

@@ -1,20 +1,20 @@
-#ifndef __HOTEL_HPP__
-#define __HOTEL_HPP__
+#ifndef __VILLA_HPP__
+#define __VILLA_HPP__
 
 #include "Accomodation.hpp"
 #include "Utils.hpp"
 
-class Hotel : public Accomodation {
+class Villa : public Accomodation {
     public:
-        Hotel() {
+        Villa() {
 
         }
-        Hotel(const Place& place,
+        Villa(const Place& place,
                 const std::string& address,
                 const Map<Room, int>& rooms)
                 : Accomodation(place, address, rooms) {
         }
-        Hotel(const Hotel& rhs)
+        Villa(const Villa& rhs)
         : Accomodation(rhs) {
 
         }

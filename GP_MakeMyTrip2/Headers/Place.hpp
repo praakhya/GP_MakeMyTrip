@@ -6,23 +6,33 @@
 
 class Place
 {
+private:
     std::string city;
     std::string state;
     std::string country;
+
 public:
-    Place(const std::string& city="Bengaluru", const std::string& state="Karnataka", const std::string& country="India")
-    : city(city),
-      state(state),
-      country(country) {
-    }
-    inline const std::string& getCity() {
-        return city;
-    }
-    inline const std::string& getState() {
-        return state;
-    }
-    inline const std::string& getCountry() {
-        return country;
-    }
+    Place(const std::string &city = "Bengaluru",
+          const std::string &state = "Karnataka",
+          const std::string &country = "India");
+    const std::string &getCity();
+    const std::string &getState();
+    const std::string &getCountry();
 };
+inline const std::string &
+Place::getCity()
+{
+    return city;
+}
+inline const std::string &
+Place::getState()
+{
+    return state;
+}
+inline const std::string &
+Place::getCountry()
+{
+    return country;
+}
+
 #endif

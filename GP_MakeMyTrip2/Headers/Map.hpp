@@ -1,3 +1,6 @@
+#ifndef __MAP_HPP__
+#define __MAP_HPP__
+
 #include "Utils.hpp"
 const int MAX_MAP_SIZE = 1000;
 template <typename A, typename B>
@@ -8,11 +11,11 @@ class Map
         std::cout << "[\n";
         for (int i = rhs.beginIndex; i < rhs.endIndex; ++i)
         {
-            std::cout << rhs.pairs[i] << '\n';
+            std::cout << *(rhs.pairs[i]) << '\n';
         }
         std::cout << "]\n";
     }
-    Pair<A, B> *pairs;
+    Pair<A, B> *pairs[MAX_MAP_SIZE];
     int beginIndex;
     int endIndex;
     int length() const
@@ -24,7 +27,7 @@ class Map
         for (int i = beginIndex; i < endIndex; ++i)
         {
             std::cout << "index = " << i << ": ";
-            pairs[i].print();
+            pairs[i]->print();
             std::cout << "\n";
         }
     }
@@ -32,16 +35,14 @@ class Map
 public:
     Map()
     {
-        this->pairs = new Pair<A, B>[MAX_MAP_SIZE];
         beginIndex = 0;
         endIndex = 0;
     };
     Map(const Map& rhs)
-    : pairs(new Pair<A, B>[MAX_MAP_SIZE]),
-    beginIndex(rhs.beginIndex),
-    endIndex(rhs.endIndex) {
+    : beginIndex(rhs.beginIndex),
+      endIndex(rhs.endIndex) {
         for (int i = rhs.beginIndex; i < rhs.endIndex; ++i) {
-            this->pairs[i] = rhs.pairs[i];
+            this->pairs[i] = rhs.pairs[i]->clone();
         }
     }
     void print()
@@ -50,15 +51,15 @@ public:
     }
     Pair<A, B> *get(int i) const
     {
-        return &this->pairs[i];
+        return this->pairs[i];
     }
     Pair<A, B> *begin()
     {
-        return &pairs[0];
+        return pairs[0];
     }
     Pair<A, B> *end()
     {
-        return &pairs[length() - 1];
+        return pairs[length() - 1];
     }
     int size() const
     {
@@ -74,7 +75,7 @@ public:
     }
     void pair_insert(A key, B value)
     {
-        this->pairs[endIndex++] = Pair<A, B>(key, value);
+        this->pairs[endIndex++] = new Pair<A, B>(key, value);
     }
 
     // Variadic function Template that takes
@@ -96,7 +97,7 @@ public:
         int foundIndex = -1;
         for (int i = 0; i < this->length(); ++i)
         {
-            if (this->pairs[i].key() == key)
+            if (this->pairs[i]->key() == key)
             {
                 foundIndex = i;
                 break;
@@ -104,6 +105,7 @@ public:
         }
         if (foundIndex != -1)
         {
+            delete this->pairs[foundIndex];
             for (int i = foundIndex; i < this->length() - 1; ++i)
             {
                 this->pairs[i] = this->pairs[i + 1];
@@ -112,3 +114,4 @@ public:
         --endIndex;
     }
 };
+#endif
