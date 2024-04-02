@@ -1,6 +1,6 @@
-#include "Utils/Utils.hpp"
 #include <iostream>
-int main() {
+#include "Headers/UserSession.hpp"
+/* int main() {
     Vector<int> v1 = Vector<int>();
     Vector<int> v2 = Vector<int>(1);
     v2.print();
@@ -17,4 +17,8 @@ int main() {
     
     
     
+} */
+int main() {
+    UserSession u = UserSession();
+
 }

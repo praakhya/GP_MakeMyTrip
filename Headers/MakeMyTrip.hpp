@@ -3,6 +3,7 @@
 #include <unistd.h>
 
 #include "Utils.hpp"
+#include "BookingResourceManager.hpp"
 
 class MakeMyTrip {
     void runCustomer();

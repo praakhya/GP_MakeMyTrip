@@ -1,5 +1,4 @@
 #include "Headers/MakeMyTrip.hpp"
-#include "Headers/BookingResourceManager.hpp"
 
 void startHotelBooking() {
 
@@ -119,5 +118,4 @@ int main() {
     m->print();
     m->get(0)->print();
     std::cout << "key: " <<  m->get(0)->key() << std::endl; */
-
 }
