@@ -1,8 +1,8 @@
-CXXFLAGS=-IHeaders -std=c++11
+CXXFLAGS=-IHeaders -std=c++11 -g
 
 all : mmt test/testMenu
 
-mmt: MakeMyTrip.o Entities/Accomodation.o Entities/Place.o Interfaces/HotelInterface.o
+mmt: MakeMyTrip.o Entities/Accomodation.o Entities/Place.o Interfaces/HotelInterface.o Repositories/HotelRepository.o Repositories/UserRepository.o Entities/Hotel.o
 	$(CXX) $(CXXFLAGS) -o $@ $? $(LDFLAGS)
 test/testMenu: test/testMenu.cpp
 

@@ -9,10 +9,11 @@ class Homestay : public Accomodation {
         Homestay() {
 
         }
-        Homestay(const Place& place,
+        Homestay( const std::string& name,
+                const Place& place,
                 const std::string& address,
                 const Map<Room, int>& rooms)
-                : Accomodation(place, address, rooms) {
+                : Accomodation(name,place, address, rooms) {
         }
         Homestay(const Homestay& rhs)
         : Accomodation(rhs) {

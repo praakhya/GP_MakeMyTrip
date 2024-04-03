@@ -9,10 +9,11 @@ class Villa : public Accomodation {
         Villa() {
 
         }
-        Villa(const Place& place,
+        Villa(const std::string& name,
+                const Place& place,
                 const std::string& address,
                 const Map<Room, int>& rooms)
-                : Accomodation(place, address, rooms) {
+                : Accomodation(name, place, address, rooms) {
         }
         Villa(const Villa& rhs)
         : Accomodation(rhs) {

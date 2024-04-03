@@ -4,20 +4,25 @@
 #include "Accomodation.hpp"
 #include "Utils.hpp"
 
-class Hotel : public Accomodation {
-    public:
-        Hotel() {
-
+class Hotel : public Accomodation
+{
+public:
+        int id;
+        Hotel()
+        {
         }
-        Hotel(const Place& place,
-                const std::string& address,
-                const Map<Room, int>& rooms)
-                : Accomodation(place, address, rooms) {
+        Hotel( const std::string &name,
+                const Place &place,
+              const std::string &address,
+              const Map<Room, int> &rooms)
+            : Accomodation(name, place, address, rooms)
+        {
         }
-        Hotel(const Hotel& rhs)
-        : Accomodation(rhs) {
-
+        Hotel(const Hotel &rhs)
+            : Accomodation(rhs)
+        {
         }
+        friend std::ostream &operator<<(std::ostream &strm, const Hotel &rhs);
 };
 
 #endif

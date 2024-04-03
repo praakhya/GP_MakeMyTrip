@@ -1,6 +1,7 @@
 #ifndef __MENU_H__
 #define __MENU_H__
 #include "Utils.hpp"
+#include <cstdlib>
 
 template <class T>
 class Menu
@@ -16,6 +17,7 @@ public:
   }
   void run()
   {
+    std::string strChoice;
     int choice;
     do
     {
@@ -28,13 +30,15 @@ public:
       }
       std::cout << menuMap.size() + 1 << (returnIsExit ? ". Exit" : ". Return")
                 << std::endl;
-      std::cin >> choice;
+      std::getline(std::cin, strChoice);
+      choice = std::stoi(strChoice);
+//      std::cout << "Choice entered :" << strChoice << ' ' << choice << std::endl;
       if (choice < 1 && choice > menuMap.size() + 1)
       {
         std::cout << "Invalid option. Try Again\n";
         continue;
       }
-      else
+      else if(choice >= 1 && choice <= menuMap.size() + 1)
       {
 
         if (choice == menuMap.size() + 1)
@@ -52,8 +56,14 @@ public:
             return;
           }
         }
+        else {
+
         void (T::*methodPtr)() = menuMap.get(choice - 1)->value();
         (target.*methodPtr)();
+        }
+      }
+      else {
+        std::cout << "Invalid choice entered " << choice << std::endl;
       }
     } while (choice > 0 && choice <= menuMap.size() + 1);
   }

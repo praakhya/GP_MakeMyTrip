@@ -9,6 +9,12 @@ class Room {
     int bedCount;
     Price pricePerNight;
 public:
+    Room() {
+        roomType="NULL";
+        area = 0;
+        bedCount =0;
+        pricePerNight = 0;
+    }
     Room(const std::string& roomType,
          float area,
          int bedCount,
@@ -39,6 +45,28 @@ public:
     }
     inline const Price& getPricePerNight() {
         return pricePerNight;
+    }
+    void print() {
+    std::cout << "{";
+    std::cout << "roomType: " << roomType 
+    << ", area: " << area 
+    << ", bedCount: " << bedCount
+    << ", pricePerNight: " << pricePerNight;
+    std::cout << "}";
+    }
+    friend std::ostream &operator<<(std::ostream &strm, const Room &rhs)
+    {
+        std::string roomType;
+    float area;
+    int bedCount;
+    Price pricePerNight;
+    std::cout << "{";
+    std::cout << "roomType: " << rhs.roomType 
+    << ", area: " << rhs.area 
+    << ", bedCount: " << rhs.bedCount
+    << ", pricePerNight: " << rhs.pricePerNight;
+    std::cout << "}";
+    return strm;
     }
 };
 #endif

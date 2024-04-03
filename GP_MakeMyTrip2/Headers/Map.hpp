@@ -8,12 +8,13 @@ class Map
 {
     friend std::ostream &operator<<(std::ostream &strm, const Map<A, B> &rhs)
     {
-        std::cout << "[\n";
+        std::cout << "[ ";
         for (int i = rhs.beginIndex; i < rhs.endIndex; ++i)
         {
-            std::cout << *(rhs.pairs[i]) << '\n';
+            std::cout << *(rhs.pairs[i]) << ',';
         }
-        std::cout << "]\n";
+        std::cout << " ]";
+        return strm;
     }
     Pair<A, B> *pairs[MAX_MAP_SIZE];
     int beginIndex;

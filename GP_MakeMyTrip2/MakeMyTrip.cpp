@@ -1,12 +1,15 @@
 #include "MakeMyTrip.hpp"
-#include "BookingResourceManager.hpp"
+#include "UserRepository.hpp"
 
 void exitApp(){exit(0);}
 typedef Pair<int, std::string> IntStringPair;
 MakeMyTrip::MakeMyTrip(){
 }
 void MakeMyTrip::run(){
-    if (getuid()) {
+    UserRepository* userRepository = UserRepository::getInstance();
+    std::cout << "---------Welcome to Make My Trip!---------" << std::endl;
+    std::cout << userRepository->type << ": " << userRepository->username << std::endl;
+    if (userRepository->type == "CUSTOMER") {
         this->runCustomer();
     }
     else {
@@ -14,7 +17,11 @@ void MakeMyTrip::run(){
     }
 }
 void MakeMyTrip::runAdmin() {
-    std::cout << "Run admin" << std::endl;
+    Menu<MakeMyTrip> mainMenu(
+        *this, true,
+        Menu<MakeMyTrip>::PairType("Modify Accomadation",&MakeMyTrip::startAccomodation),
+        Menu<MakeMyTrip>::PairType("Modify Transportation",&MakeMyTrip::startTransportation));
+    mainMenu.run();
 }
 int MakeMyTrip::runMenu() {
     int choice;
@@ -26,7 +33,6 @@ int MakeMyTrip::runMenu() {
     return choice;
 }
 void MakeMyTrip::runCustomer() {
-    std::cout << "Welcome to Make My Trip" << std::endl;
     Menu<MakeMyTrip> mainMenu(
         *this, true,
         Menu<MakeMyTrip>::PairType("Accomadation",&MakeMyTrip::startAccomodation),
