@@ -10,6 +10,7 @@ public:
         int id;
         Hotel()
         {
+          this->id = 0;
         }
         Hotel( const std::string &name,
                 const Place &place,
@@ -17,10 +18,12 @@ public:
               const Map<Room, int> &rooms)
             : Accomodation(name, place, address, rooms)
         {
+          this->id = 0;
         }
         Hotel(const Hotel &rhs)
             : Accomodation(rhs)
         {
+          this->id = 0;
         }
         friend std::ostream &operator<<(std::ostream &strm, const Hotel &rhs);
 };

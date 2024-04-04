@@ -7,8 +7,10 @@ Hotel HotelRepository::put(Hotel accomodation){
 }
 void HotelRepository::remove(Hotel accomodation){}
 Hotel HotelRepository::add(Hotel accomodation){
-    accomodation.id = hotelId++;
+    accomodation.id = ++HotelRepository::hotelId;
+    std::cout << accomodation << "," << HotelRepository::hotelId << std::endl;
     allHotels.push_back(accomodation);
+    std::cout << allHotels << std::endl;
     return accomodation;
 }
 
@@ -55,5 +57,7 @@ void HotelRepository::load() {
     Map<Room, int> rooms;
     rooms.pair_insert(Room("King Size Deluxe Room", 12.9, 1, 4272), 5);
     Hotel hotel("Hotel Grand",Place("Bengaluru"), "Banshankari", rooms);
-    allHotels.push_back(hotel);
+    add(
+        hotel
+    );
 }

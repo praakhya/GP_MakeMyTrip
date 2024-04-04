@@ -30,39 +30,6 @@ void HotelInterface::runAdmin()
     );
     subMenu.run();
 }
-/* void HotelInterface::searchHotel() {
-    std::cout << "Make a choice" << std::endl;
-    std::cout << "1. Search hotel by name" << std::endl;
-    std::cout << "2. Search hotel by address" << std::endl;
-    std::cout << "3. Search hotel by availability" << std::endl;
-    std::string choice;
-    //std::cin >> choice;
-    std::getline(std::cin, choice);
-    if (choice.compare("1")==0) {
-        std::string name = "";
-        std::cout << "Enter hotel name: ";
-        std::getline(std::cin, name, '\n');
-        std::cout << "Searching for " << name << std::endl;
-        Vector<Hotel> foundHotels = Vector<Hotel>();
-        hotelRepository->getByName(name, foundHotels);
-        foundHotels.print();
-    }
-    if (choice.compare("2")==0) {
-        std::string address = "";
-        std::cout << "Enter hotel address: ";
-        std::cin >> address;
-        Vector<Hotel> foundHotels = hotelRepository->getByAddress(address);
-        foundHotels.print();
-    }
-    if (choice.compare("3")==0) {
-        std::cout << "The following hotels are available: -" << std::endl;
-        Vector<Hotel> foundHotels = hotelRepository->getByAvailability();
-        foundHotels.print();
-    }
-    else {
-        std::cout << "Invalid Choice. Try Again.";
-    }
-} */
 
 void HotelInterface::searchHotel()
 {
