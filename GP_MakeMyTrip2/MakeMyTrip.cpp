@@ -75,6 +75,14 @@ void MakeMyTrip::startHotelBooking() {
     HotelInterface hotelInterface;
     hotelInterface.run();
 }
+void MakeMyTrip::startHomestayBooking() {
+    HomestayInterface homestayInterface;
+    homestayInterface.run();
+}
+void MakeMyTrip::startVillaBooking() {
+    VillaInterface villaInterface;
+    villaInterface.run();
+}
 
 int main() {
     MakeMyTrip m = MakeMyTrip();

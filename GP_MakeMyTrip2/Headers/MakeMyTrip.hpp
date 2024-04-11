@@ -6,6 +6,14 @@
 #include "menu.hpp"
 #include "HotelInterface.hpp"
 #include "HotelRepository.hpp"
+#include "HomestayInterface.hpp"
+#include "HomestayRepository.hpp"
+#include "VillaInterface.hpp"
+#include "VillaRepository.hpp"
+
+
+
+
 
 class MakeMyTrip {
   void runCustomer();
@@ -19,8 +27,8 @@ public:
   MakeMyTrip();
   void run();
   void startHotelBooking();
-  void startHomestayBooking() {}
-  void startVillaBooking() {}
+  void startHomestayBooking();
+  void startVillaBooking();
   void startAccomodation();
   void startTransportation() {}
   void startManager() {

@@ -1,19 +1,19 @@
-#ifndef __VILLA_HPP__
-#define __VILLA_HPP__
+#ifndef __HOMESTAY_HPP__
+#define __HOMESTAY_HPP__
 
 #include "Accomodation.hpp"
 #include "Utils.hpp"
 
-class Villa : public Accomodation
+class Homestay : public Accomodation
 {
     static int maxId;
 
 public:
         int id;
-        Villa()
+        Homestay()
         {
         }
-        Villa(
+        Homestay(
             const std::string &name,
               const Place &place,
               const std::string &address,
@@ -22,12 +22,12 @@ public:
             id(++maxId)
         {
         }
-        Villa(const Villa &rhs)
+        Homestay(const Homestay &rhs)
             : Accomodation(rhs),
             id(rhs.id)
         {
         }
-        friend std::ostream &operator<<(std::ostream &strm, const Villa &rhs);
+        friend std::ostream &operator<<(std::ostream &strm, const Homestay &rhs);
         void print();
 };
 

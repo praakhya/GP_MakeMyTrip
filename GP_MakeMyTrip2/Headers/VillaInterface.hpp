@@ -1,23 +1,23 @@
-#ifndef __HOTEL_INTERFACE_H__
-#define __HOTEL_INTERFACE_H__
+#ifndef __VILLA_INTERFACE_H__
+#define __VILLA_INTERFACE_H__
 #include "Utils.hpp"
 #include "Room.hpp"
-#include "Hotel.hpp"
+#include "Villa.hpp"
 #include "menu.hpp"
 #include "Map.hpp"
-#include "HotelRepository.hpp"
+#include "VillaRepository.hpp"
 #include "UserRepository.hpp"
 #include "AccomodationInterface.hpp"
 #include <cstdlib>
 
-class HotelInterface : public AccomodationInterface<Hotel> {
+class VillaInterface : public AccomodationInterface<Villa> {
     private:
     void search();
     void runCustomer();
     void runAdmin();
 
     public:
-    HotelInterface();
+    VillaInterface();
 
     
 };
