@@ -2,6 +2,7 @@
 #define __MENU_H__
 #include "Utils.hpp"
 #include <cstdlib>
+#include "Pair.hpp"
 
 template <class T>
 class Menu

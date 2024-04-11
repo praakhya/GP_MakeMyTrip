@@ -6,26 +6,29 @@
 
 class Hotel : public Accomodation
 {
+    static int maxId;
+
 public:
         int id;
         Hotel()
         {
-          this->id = 0;
         }
-        Hotel( const std::string &name,
-                const Place &place,
+        Hotel(
+            const std::string &name,
+              const Place &place,
               const std::string &address,
-              const Map<Room, int> &rooms)
-            : Accomodation(name, place, address, rooms)
+              const Vector<Room> &rooms)
+            : Accomodation(name, place, address, rooms),
+            id(++maxId)
         {
-          this->id = 0;
         }
         Hotel(const Hotel &rhs)
-            : Accomodation(rhs)
+            : Accomodation(rhs),
+            id(rhs.id)
         {
-          this->id = 0;
         }
         friend std::ostream &operator<<(std::ostream &strm, const Hotel &rhs);
+        void print();
 };
 
 #endif

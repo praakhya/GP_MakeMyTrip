@@ -1,6 +1,6 @@
 #ifndef __VECTOR_H__
 #define __VECTOR_H__
-
+#include "Utils.hpp"
 #include <iostream>
 const int MAX_VECTOR_SIZE = 1000;
 template <class T>
@@ -21,7 +21,7 @@ class Vector
     }
 
 public:
-    int size()
+    int size() const
     {
         return endIndex - beginIndex;
     }
@@ -57,15 +57,30 @@ public:
     {
         this->vector[endIndex++] = a;
     }
+    void remove(int index) {
+        if (index < beginIndex || index >= endIndex)  {
+            return;
+        }
+        for (int i=index+1; i<endIndex; ++i) {
+            vector[i-1] = vector[i];
+        }
+        pop_back();
+    }
     void pop_back()
     {
         endIndex = std::max(0, endIndex - 1);
     }
-    void print()
+    void print() const
     {
-        std::cout << *this << '\n';
+        for (int i=0; i<size(); ++i) {
+            vector[i].print();
+        }
     }
     T &operator[](int index)
+    {
+        return vector[index];
+    }
+    const T &operator[](int index) const
     {
         return vector[index];
     }

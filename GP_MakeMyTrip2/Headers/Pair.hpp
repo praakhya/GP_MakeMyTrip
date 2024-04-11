@@ -1,3 +1,6 @@
+#ifndef __PAIR_HPP__
+#define __PAIR_HPP__
+
 #include <iostream>
 
 template <typename A, typename B>
@@ -38,3 +41,5 @@ public:
         return new Pair<A, B>(k, v);
     }
 };
+
+#endif

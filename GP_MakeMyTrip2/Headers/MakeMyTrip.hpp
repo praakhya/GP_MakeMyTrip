@@ -5,10 +5,7 @@
 #include "Utils.hpp"
 #include "menu.hpp"
 #include "HotelInterface.hpp"
-#include "HotelEndpoint.hpp"
-#include "HomestayRepository.hpp"
 #include "HotelRepository.hpp"
-#include "VillaRepository.hpp"
 
 class MakeMyTrip {
   void runCustomer();
@@ -26,5 +23,11 @@ public:
   void startVillaBooking() {}
   void startAccomodation();
   void startTransportation() {}
-  void startManager() {}
+  void startManager() {
+    UserRepository* userRepository = UserRepository::getInstance();
+    std::cout << "Your Bookings: - " << std::endl;
+    userRepository->showAllBookings();
+  }
+  void initCustomer();
+  void initAdmin();
 };

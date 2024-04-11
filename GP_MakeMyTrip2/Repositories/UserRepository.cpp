@@ -2,6 +2,7 @@
 #include <unistd.h>
 
 UserRepository* UserRepository::instance = 0;
+Vector<Booking> UserRepository::bookings = Vector<Booking>();
 int UserRepository::bookingId = 0;
 
 
@@ -26,12 +27,20 @@ void UserRepository::load() {
         type = "CUSTOMER";
     }
 }
-void UserRepository::addBooking(Room room, std::string start, std::string end) {
-    bookings.push_back(
-        Booking(bookingId++, room, start, end)
-    );
-
+void UserRepository::addBooking(const Accomodation& accom, const Room& room, const month& mnth, int start, int end) {
+    bookings.push_back(Booking(
+        accom, room, mnth, start, end
+    ));
 }
-Booking UserRepository::removeBooking() {
-    
+void UserRepository::showAllBookings() {
+    bookings.print();
+}
+void UserRepository::removeBooking(int id) {
+    int i;
+    for (i=0; i<bookings.size(); ++i) {
+        if (bookings[i].id == id) {
+            break;
+        }
+    }
+    bookings.remove(i);
 }

@@ -8,65 +8,19 @@ class Room {
     float area;
     int bedCount;
     Price pricePerNight;
+    static int maxId;
 public:
-    Room() {
-        roomType="NULL";
-        area = 0;
-        bedCount =0;
-        pricePerNight = 0;
-    }
+    int id;
+    Calendar calendar;
+    Room();
     Room(const std::string& roomType,
          float area,
          int bedCount,
          int amount,
-         const std::string& symbol="Rs.")
-    : roomType(roomType),
-      area(area),
-      bedCount(bedCount),
-      pricePerNight(Price(amount, symbol)) {
-
-    }
-    Room(const Room& rhs)
-    : roomType(rhs.roomType),
-      area(rhs.area),
-      bedCount(rhs.bedCount),
-      pricePerNight(rhs.pricePerNight)
-    {
-
-    }
-    inline const std::string& getRoomType() {
-        return roomType;
-    }
-    inline float getArea() {
-        return area;
-    }
-    inline int getBedCount() {
-        return bedCount;
-    }
-    inline const Price& getPricePerNight() {
-        return pricePerNight;
-    }
-    void print() {
-    std::cout << "{";
-    std::cout << "roomType: " << roomType 
-    << ", area: " << area 
-    << ", bedCount: " << bedCount
-    << ", pricePerNight: " << pricePerNight;
-    std::cout << "}";
-    }
-    friend std::ostream &operator<<(std::ostream &strm, const Room &rhs)
-    {
-        std::string roomType;
-    float area;
-    int bedCount;
-    Price pricePerNight;
-    std::cout << "{";
-    std::cout << "roomType: " << rhs.roomType 
-    << ", area: " << rhs.area 
-    << ", bedCount: " << rhs.bedCount
-    << ", pricePerNight: " << rhs.pricePerNight;
-    std::cout << "}";
-    return strm;
-    }
+         const std::string& symbol="Rs."
+         );
+    Room(const Room& rhs);
+    void print();
+    friend std::ostream &operator<<(std::ostream &strm, const Room &rhs);
 };
 #endif

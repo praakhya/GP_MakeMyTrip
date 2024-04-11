@@ -1,27 +1,31 @@
-#include "Room.hpp"
 #ifndef __BOOKING_HPP__
 #define __BOOKING_HPP__
+#include "Room.hpp"
+#include "Accomodation.hpp"
+
 class Booking {
     friend std::ostream &operator<<(std::ostream &strm, const Booking &rhs);
+    static int bookingId;
     public:
-    int id;
+    Accomodation accomodation;
     Room room;
-    std::string start;
-    std::string end;
+    month mnth;
+    int start, end;
+    int id;
+    void print();
     Booking()
     {
     }
     Booking(
-        const int &id, const Room &room, const std::string &start, const std::string &end)
-        : id(id), room(room), start(start), end(end)
+        const Accomodation &accom, const Room &room, month mnth, int start, int end)
+        : id(++bookingId), accomodation(accom), room(room), mnth(mnth), start(start), end(end)
     {
     }
     Booking(const Booking &rhs)
+        : id(rhs.id), accomodation(rhs.accomodation), room(rhs.room), mnth(rhs.mnth), start(rhs.start), end(rhs.end)
     {
-        this->id = rhs.id;
-        this->room = rhs.room;
-        this->start = rhs.start;
-        this->end = rhs.end;
     }
 };
+
+
 #endif

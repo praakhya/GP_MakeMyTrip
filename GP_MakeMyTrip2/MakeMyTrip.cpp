@@ -9,6 +9,12 @@ void MakeMyTrip::run(){
     UserRepository* userRepository = UserRepository::getInstance();
     std::cout << "---------Welcome to Make My Trip!---------" << std::endl;
     std::cout << userRepository->type << ": " << userRepository->username << std::endl;
+    Menu<MakeMyTrip> mainMenu(
+        *this, true,
+        Menu<MakeMyTrip>::PairType("Login as Customer",&MakeMyTrip::initCustomer),
+        Menu<MakeMyTrip>::PairType("Login as Admin",&MakeMyTrip::initAdmin)
+        );
+    mainMenu.run();
     if (userRepository->type == "CUSTOMER") {
         this->runCustomer();
     }
@@ -18,11 +24,23 @@ void MakeMyTrip::run(){
 }
 void MakeMyTrip::runAdmin() {
     Menu<MakeMyTrip> mainMenu(
-        *this, true,
+        *this, false,
         Menu<MakeMyTrip>::PairType("Modify Accomadation",&MakeMyTrip::startAccomodation),
-        Menu<MakeMyTrip>::PairType("Modify Transportation",&MakeMyTrip::startTransportation));
+        Menu<MakeMyTrip>::PairType("Modify Transportation",&MakeMyTrip::startTransportation)
+        );
     mainMenu.run();
 }
+void MakeMyTrip::initCustomer() {
+    UserRepository* userRepository = UserRepository::getInstance();
+    userRepository->type = "CUSTOMER";
+    runCustomer();
+}
+void MakeMyTrip::initAdmin() {
+    UserRepository* userRepository = UserRepository::getInstance();
+    userRepository->type = "ADMIN";
+    runAdmin();
+}
+
 int MakeMyTrip::runMenu() {
     int choice;
     std::cout << "Choose an option:-\n" << std::endl;
@@ -34,7 +52,7 @@ int MakeMyTrip::runMenu() {
 }
 void MakeMyTrip::runCustomer() {
     Menu<MakeMyTrip> mainMenu(
-        *this, true,
+        *this, false,
         Menu<MakeMyTrip>::PairType("Accomadation",&MakeMyTrip::startAccomodation),
         Menu<MakeMyTrip>::PairType("Transportation",&MakeMyTrip::startTransportation),
         Menu<MakeMyTrip>::PairType("Manage Bookings",&MakeMyTrip::startManager));
@@ -61,19 +79,4 @@ void MakeMyTrip::startHotelBooking() {
 int main() {
     MakeMyTrip m = MakeMyTrip();
     m.run();
-    /* Map<int,int>* m = new Map<int,int>();
-    std::cout << "insert 1\n";
-    m->pair_insert(1,2);
-    m->print();
-    std::cout << "insert 3\n";
-    m->pair_insert(1,3);
-    m->pair_insert(1,4);
-    m->pair_insert(2,5);
-    m->print();
-    std::cout << "erase 1\n";
-    m->erase(1);
-    m->print();
-    m->get(0)->print();
-    std::cout << "key: " <<  m->get(0)->key() << std::endl; */
-
 }

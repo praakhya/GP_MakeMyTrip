@@ -1,16 +1,16 @@
-#ifndef __HOTEL_INTERFACE_H__
-#define __HOTEL_INTERFACE_H__
+#ifndef __ACCOMODATION_INTERFACE_HPP__
+#define __ACCOMODATION_INTERFACE_HPP__
 #include "Utils.hpp"
 #include "Room.hpp"
-#include "Hotel.hpp"
+#include "Accomodation.hpp"
 #include "menu.hpp"
 #include "Map.hpp"
-#include "HotelRepository.hpp"
+#include "AccomodationRepository.hpp"
 #include "UserRepository.hpp"
-#include "AccomodationInterface.hpp"
 #include <cstdlib>
 
-class HotelInterface : public AccomodationInterface<Hotel> {
+template <class T>
+class AccomodationInterface {
     private:
     void search();
     void book();
@@ -28,10 +28,11 @@ class HotelInterface : public AccomodationInterface<Hotel> {
     void removeRoom();
 
     public:
-    HotelInterface();
+    AccomodationRepository<T>* accomodationRepository;
+    UserRepository* userRepository;
+    std::string accomName;
     void run();
 
-    
 };
 
 #endif
