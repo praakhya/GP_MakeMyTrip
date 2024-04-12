@@ -224,7 +224,6 @@ public:
     }
     void book()
     {
-        searchByAvailability();
         std::string m, startDay, endDay, hotelId, roomId, confirm;
         std::cout << "----- Enter booking details -----" << std::endl;
         std::cout << "Month Number: ";

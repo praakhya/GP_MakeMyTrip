@@ -61,7 +61,8 @@ public:
                 
             }
         }
-        if (i>accom->rooms.size()) {
+        if (i>=accom->rooms.size()) {
+            std::cout << "Sorry, the room you are searching for does not exist" << std::endl;
             return 0;
         }
         Room room = accom->rooms[i];
