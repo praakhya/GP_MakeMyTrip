@@ -30,7 +30,6 @@ public:
   void startHomestayBooking();
   void startVillaBooking();
   void startAccomodation();
-  void startTransportation() {}
   void startManager() {
     UserRepository* userRepository = UserRepository::getInstance();
     std::cout << "Your Bookings: - " << std::endl;

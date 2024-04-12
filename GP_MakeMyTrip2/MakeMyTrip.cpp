@@ -25,8 +25,7 @@ void MakeMyTrip::run(){
 void MakeMyTrip::runAdmin() {
     Menu<MakeMyTrip> mainMenu(
         *this, false,
-        Menu<MakeMyTrip>::PairType("Modify Accomadation",&MakeMyTrip::startAccomodation),
-        Menu<MakeMyTrip>::PairType("Modify Transportation",&MakeMyTrip::startTransportation)
+        Menu<MakeMyTrip>::PairType("Modify Accomadation",&MakeMyTrip::startAccomodation)
         );
     mainMenu.run();
 }
@@ -54,7 +53,6 @@ void MakeMyTrip::runCustomer() {
     Menu<MakeMyTrip> mainMenu(
         *this, false,
         Menu<MakeMyTrip>::PairType("Accomadation",&MakeMyTrip::startAccomodation),
-        Menu<MakeMyTrip>::PairType("Transportation",&MakeMyTrip::startTransportation),
         Menu<MakeMyTrip>::PairType("Manage Bookings",&MakeMyTrip::startManager));
     mainMenu.run();
 }

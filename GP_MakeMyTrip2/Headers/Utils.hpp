@@ -5,7 +5,7 @@
 #include "Price.hpp"
 #include "Map.hpp"
 #include "Calendar.hpp"
-
+#include "stringConcat.hpp"
 
 #endif
 

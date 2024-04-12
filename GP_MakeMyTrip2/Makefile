@@ -1,4 +1,4 @@
-CXXFLAGS=-IHeaders -std=c++11 -g
+CXXFLAGS=-IHeaders -std=c++17 -g
 
 all : mmt test/testMenu
 

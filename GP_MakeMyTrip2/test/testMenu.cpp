@@ -1,6 +1,5 @@
-#include "menu.hpp"
 #include <iostream>
-#include "Calendar.hpp"
+#include "../Headers/stringConcat.hpp"
 class TestTarget {
 public:
   void method1() { std::cout << "Method 1" << std::endl; }
@@ -29,7 +28,10 @@ public:
 } */
 
 int main() {
-  Calendar c;
+  std::string sentence = concat("1",2,3,4,"fve");
+  std::cout << "CONCAT: " << sentence;
+
+  /* Calendar c;
   for (int i=1; i<32; ++i) {
     std::cout << "Day " << i << " is available "<< c.isAvailable(jan, i) << std::endl;
   }
@@ -46,6 +48,6 @@ int main() {
   std::cout << "=============================================================" << std::endl;
   for (int i=1; i<32; ++i) {
     std::cout << "Day " << i << " is available "<< c.isAvailable(jan, i) << std::endl;
-  }
+  } */
   
 }
