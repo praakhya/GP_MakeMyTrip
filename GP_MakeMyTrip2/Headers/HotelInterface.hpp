@@ -8,7 +8,6 @@
 #include "HotelRepository.hpp"
 #include "UserRepository.hpp"
 #include "AccomodationInterface.hpp"
-#include <cstdlib>
 
 class HotelInterface : public AccomodationInterface<Hotel> {
     private:

@@ -3,6 +3,8 @@
 
 #include "Utils.hpp"
 #include "Pair.hpp"
+
+//A non-STL implementation of a Map that uses a custom Pair object too
 const int MAX_MAP_SIZE = 1000;
 template <typename A, typename B>
 class Map

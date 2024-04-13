@@ -18,23 +18,17 @@
 class MakeMyTrip {
   void runCustomer();
   void runAdmin();
-  int runMenu();
   Map<std::string, VoidFunctionPointer> *choices;
 
 
 public:
-  static void executeMenu(const Map<std::string, VoidFunctionPointer> &menu);
   MakeMyTrip();
   void run();
   void startHotelBooking();
   void startHomestayBooking();
   void startVillaBooking();
   void startAccomodation();
-  void startManager() {
-    UserRepository* userRepository = UserRepository::getInstance();
-    std::cout << "Your Bookings: - " << std::endl;
-    userRepository->showAllBookings();
-  }
+  void startManager();
   void initCustomer();
   void initAdmin();
 };

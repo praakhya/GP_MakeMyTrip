@@ -1,4 +1,5 @@
 #include "Homestay.hpp"
+#include "Comparator.h"
 
 int Homestay::maxId = 0;
 std::ostream &

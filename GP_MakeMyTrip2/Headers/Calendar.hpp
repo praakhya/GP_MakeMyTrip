@@ -22,6 +22,7 @@ class Calendar {
     Vector<unsigned long> calendar;
     unsigned long int initArray = 0x8000000000000000;
     public:
+    //The calendar is a vector containing 12 integers. Each bit of each integer represents the days of a month 
     Calendar()
      : calendar(0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00) {
     }
@@ -42,6 +43,7 @@ class Calendar {
         unsigned long int day = initArray >> d;
         return (currM&day)==0;
     }
+    // Set the bit d to mark as booked 
     void bookDay(month m, int d) {
         unsigned long int currM = getMonth(m);
         unsigned long int day = initArray >> d;
@@ -52,6 +54,7 @@ class Calendar {
             bookDay(m,i);
         }
     }
+    // Set the free d to mark as available 
     void freeDay(month m, int d) {
         unsigned long int currM = getMonth(m);
         unsigned long int day = initArray >> d;

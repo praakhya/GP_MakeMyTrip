@@ -4,7 +4,6 @@
 #include "AccomodationRepository.hpp"
 #include "Villa.hpp"
 #include "Utils.hpp"
-#include <sqlite3.h> 
 
 
 class VillaRepository : public AccomodationRepository<Villa> {
@@ -15,6 +14,8 @@ class VillaRepository : public AccomodationRepository<Villa> {
     private:
     void load();
     VillaRepository();
+    int getIndex(int id);
+
 };
 
 #endif

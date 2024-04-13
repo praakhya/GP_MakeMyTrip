@@ -1,4 +1,5 @@
 #include "Hotel.hpp"
+#include "Comparator.h"
 
 int Hotel::maxId = 0;
 std::ostream &

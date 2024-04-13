@@ -1,7 +1,9 @@
 #ifndef __VECTOR_H__
 #define __VECTOR_H__
+#include "Comparator.h"
 #include "Utils.hpp"
 #include <iostream>
+
 const int MAX_VECTOR_SIZE = 1000;
 template <class T>
 class Vector
@@ -53,6 +55,17 @@ public:
             push_back(b...);
         }
     }
+
+    template <typename K=T>
+    int find(const K& k, bool (*comp)(const T&, const K&) = &compare<T, K>) {
+            for (int i = 0; i < endIndex; ++i) {
+                if (comp(this->vector[i], k)) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
     void push_back(T a)
     {
         this->vector[endIndex++] = a;

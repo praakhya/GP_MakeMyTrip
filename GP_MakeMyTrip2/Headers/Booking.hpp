@@ -3,10 +3,12 @@
 #include "Room.hpp"
 #include "Accomodation.hpp"
 
-class Booking {
+class Booking
+{
     friend std::ostream &operator<<(std::ostream &strm, const Booking &rhs);
     static int bookingId;
-    public:
+
+public:
     Accomodation accomodation;
     Room room;
     month mnth;
@@ -26,6 +28,5 @@ class Booking {
     {
     }
 };
-
 
 #endif

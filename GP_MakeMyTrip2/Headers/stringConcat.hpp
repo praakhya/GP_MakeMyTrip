@@ -4,6 +4,7 @@
 #include <sstream>
 #include <string>
 
+//An implementation of a string concatenation method that utilises fold expression
 template<typename... Args>
 std::string concat(Args&& ... args)
 {   

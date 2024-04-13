@@ -1,17 +1,16 @@
 #ifndef __MENU_H__
 #define __MENU_H__
 #include "Utils.hpp"
-#include <cstdlib>
 #include "Pair.hpp"
 
 template <class T>
 class Menu
 {
 public:
-  typedef Map<std::string, void (T::*)()> MapType;
+  typedef Map<std::string, void (T::*)()> MapType; //the value is a method that is bound to an instance of a particular class
   typedef Pair<std::string, void (T::*)()> PairType;
   template <typename... MapPairType>
-  Menu(T &target, bool returnIsExit, MapPairType... pairs)
+  Menu(T &target, bool returnIsExit, MapPairType... pairs) //target is the class in which the method exists
       : target(target), returnIsExit(returnIsExit)
   {
     addMenuItem(pairs...);
@@ -29,7 +28,7 @@ public:
       {
         std::cout << i + 1 << ". " << menuMap.get(i)->key() << std::endl;
       }
-      std::cout << menuMap.size() + 1 << (returnIsExit ? ". Exit" : ". Return")
+      std::cout << menuMap.size() + 1 << (returnIsExit ? ". Exit" : ". Return") //The class allows certain menus to exit the program and others to just exit current scope
                 << std::endl;
       std::getline(std::cin, strChoice);
       choice = std::stoi(strChoice);
@@ -60,7 +59,7 @@ public:
         else {
 
         void (T::*methodPtr)() = menuMap.get(choice - 1)->value();
-        (target.*methodPtr)();
+        (target.*methodPtr)(); //calling the function pointer
         }
       }
       else {
@@ -71,7 +70,7 @@ public:
 
 private:
   T &target;
-  Map<std::string, void (T::*)()> menuMap;
+  Map<std::string, void (T::*)()> menuMap; //a map of strings and function pointers
   bool returnIsExit;
 
   template <typename T1>
@@ -81,7 +80,7 @@ private:
   }
 
   template <typename T1, typename... T2>
-  void addMenuItem(const T1 &pair1, const T2 &...pairs)
+  void addMenuItem(const T1 &pair1, const T2 &...pairs) //A variadic template to add multiple menu items
   {
     menuMap.insert(pair1);
     if (sizeof...(pairs) > 0)

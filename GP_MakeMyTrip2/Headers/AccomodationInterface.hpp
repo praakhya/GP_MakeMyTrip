@@ -7,12 +7,12 @@
 #include "Map.hpp"
 #include "AccomodationRepository.hpp"
 #include "UserRepository.hpp"
-#include <cstdlib>
 
 template <class T>
-class AccomodationInterface
+class AccomodationInterface //It is the template that all accomodations follow for making interfaces
 {
 private:
+//The below methods are implemented by each of the subclasses while remaining are implemented in this template itself
     virtual void search() = 0;
     virtual void runCustomer() = 0;
     virtual void runAdmin() = 0;

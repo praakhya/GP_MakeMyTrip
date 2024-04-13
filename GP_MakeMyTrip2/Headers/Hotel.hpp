@@ -1,11 +1,13 @@
 #ifndef __HOTEL_HPP__
 #define __HOTEL_HPP__
 
+#include "Comparator.h"
 #include "Accomodation.hpp"
 #include "Utils.hpp"
 
 class Hotel : public Accomodation
 {
+    friend bool compare<>(const Hotel &lhs, const int &rhs);
     static int maxId;
 
 public:

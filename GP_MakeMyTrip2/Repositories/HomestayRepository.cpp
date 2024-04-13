@@ -1,3 +1,10 @@
+#include "Comparator.h"
+#include "Homestay.hpp"
+template <>
+bool compare<>(const Homestay &lhs, const int &rhs) {
+  return lhs.id == rhs;
+}
+
 #include "HomestayRepository.hpp"
 
 HomestayRepository* HomestayRepository::instance = 0;
@@ -22,4 +29,11 @@ void HomestayRepository::load() {
     add(
         hotel
     );
+}
+
+int 
+HomestayRepository::getIndex(int id)
+{
+
+    return all.find(id);
 }

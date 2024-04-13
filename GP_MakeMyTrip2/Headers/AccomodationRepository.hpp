@@ -5,11 +5,15 @@
 #include "Utils.hpp"
 #include "UserRepository.hpp"
 
+//This repository class is a template that all accomodations 
+//follow to define their repositories. 
+//The repository helps in data handling.
 template <class T>
 class AccomodationRepository {
 
 protected:
     Vector<T> all = Vector<T>();
+
 public:
     virtual int put(const T& accomodation) {
         int index = getIndex(accomodation.id);
@@ -19,14 +23,8 @@ public:
         all[index] = accomodation;
         return 1;
     }
-    virtual int getIndex(int id) {
-        for (int i=0; i<all.size(); ++i) {
-            if (all[i].id == id) {
-                return i;
-            }
-        }
-        return -1;
-    }
+    virtual int getIndex(int id) = 0;
+
     virtual  T* getByID(int id) {
         int i=getIndex(id);
         if (i!=-1) {
