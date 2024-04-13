@@ -10,7 +10,7 @@ My project is a basic implementation of the “Make My Trip” application that 
 - [x] [Fold Expression Templates](###fold-expression)
 - [x] [Template Specialsation](###template-specialisation)
 - [x] [Template Friendship](###template-friendship)
-- [x] [No STLs used](###STL)
+- [x] [No STLs used](#stl)
 ### Variadic Templates
 This application uses menus and vectors heavily. Both of these classes use variadic templates.
 The Menu class uses variadic templates to be able to add a variable number of menu items to display. The vector class uses variadic templates to be able to push a variable number of elements in the push_back method and during vector instantiation in the constructor.
