@@ -6,11 +6,11 @@ My project is a basic implementation of the “Make My Trip” application that 
 - Version 2 is in GP_MakeMyTrip2
 
 ## List of Generic Programming Features
-- [x] [Variadic Templates](###-Variadic-Templates)
-- [x] [Fold Expression Templates](###-Fold-Expression)
-- [x] [Template Specialsation](###-Template-Specialisation)
-- [x] [Template Friendship](###-Template-Friendship)
-- [x] [No STLs used](###-STL)
+- [x] [Variadic Templates](###Variadic-Templates)
+- [x] [Fold Expression Templates](###Fold-Expression)
+- [x] [Template Specialsation](###Template-Specialisation)
+- [x] [Template Friendship](###Template-Friendship)
+- [x] [No STLs used](###STL)
 ### Variadic Templates
 This application uses menus and vectors heavily. Both of these classes use variadic templates.
 The Menu class uses variadic templates to be able to add a variable number of menu items to display. The vector class uses variadic templates to be able to push a variable number of elements in the push_back method and during vector instantiation in the constructor.
